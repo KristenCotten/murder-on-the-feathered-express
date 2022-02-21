@@ -2,6 +2,7 @@ package com.murderexpress;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Scanner;
 
 public class StoryLine {
     // fields
@@ -10,9 +11,11 @@ public class StoryLine {
     Player player = new Player();
     int chances = player.getChances();
     int questionIndex = 0;
+    private Scanner scanner = new Scanner(System.in);
     String scene1;
     String scene2;
     String scene3;
+    String scene4;
 
     // ctor
 //    public StoryLine(String scene1, String scene2, String scene3) {
@@ -20,7 +23,7 @@ public class StoryLine {
 //        setScene2(scene2);
 //        setScene3(scene3);
 //    }
-    public StoryLine(String scene1, String scene2, String scene3) {
+    public StoryLine(String scene1, String scene2, String scene3, String scene4) {
         setScene1(scene1);
         //getTrivia
         //get question
@@ -33,6 +36,7 @@ public class StoryLine {
         //getTrivia
         //get question
         //check answer
+        setScene4(scene4);
     }
 
     // Business methods
@@ -64,13 +68,15 @@ public class StoryLine {
         System.out.println("question: " + question);
     }
 
-    public boolean checkAnswer(String userAnswer) {  //wrong answer->decrease chances
+    public boolean checkAnswer() {  //wrong answer->decrease chances
         // correct answer-> player can move forward
         boolean result;
-//        Boolean answer = parseBoolean().triviaItems.get(questionIndex).getAnswer();
+
+        String userAnswer = scanner.nextLine();
+        System.out.print("Please enter [T]rue or [F]alse: ");
+
         String questionAnswer = triviaItem.getAnswer();
-        System.out.println("answer: " + questionAnswer);
-        if (userAnswer.equalsIgnoreCase(questionAnswer)) { // user's answers match trivia answer then return true;
+        if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
             result = true;
             System.out.println("correct");
         } else {
@@ -84,11 +90,7 @@ public class StoryLine {
         return result;
     }
 
-    private boolean moveForward() { //checkAnswer must be true to call this method
-        return true; //TODO
-    }
-
-    private void getConclusion() { //called when player wins the game
+    public void getConclusion() { //called when player wins the game
         System.out.println("Congrats you found out who did it");
     }
 
@@ -128,6 +130,14 @@ public class StoryLine {
 
     public void setScene3(String scene3) {
         this.scene3 = scene3;
+    }
+
+    public String getScene4() {
+        return scene4;
+    }
+
+    public void setScene4(String scene4) {
+        this.scene4 = scene4;
     }
 
     public int getQuestionIndex() {

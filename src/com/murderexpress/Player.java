@@ -12,7 +12,7 @@ class Player {
         return userName;
     }
 
-    private void setUserName(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
     }
 
