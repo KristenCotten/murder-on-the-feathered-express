@@ -7,8 +7,6 @@ class Player {
     private int chances = 3; //player starts with 3 lives
 
 
-
-
     //Accessor Methods
     public String getUserName() {
         return userName;
@@ -20,5 +18,9 @@ class Player {
 
     public int getChances() {
         return chances;
+    }
+
+    public void setChances(int chances) {
+        this.chances = chances;
     }
 }

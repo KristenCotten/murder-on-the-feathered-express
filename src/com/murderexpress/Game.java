@@ -1,5 +1,5 @@
 package com.murderexpress;
 
-enum Result {
-    PASS, FAIL
+public class Game {
+
 }
