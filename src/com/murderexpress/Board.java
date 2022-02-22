@@ -24,14 +24,11 @@ class Board {
             board = new Board();
         }
         return board;
-    };
-
-    //private updateScoreBoard(String userName, Result result) {
-    //};
+    }
 
     public boolean isEmpty() {
         return playerMap.isEmpty();
-    };
+    }
 
     public void show() {
         System.out.println();
@@ -41,7 +38,7 @@ class Board {
         for (String player : players) {
             System.out.println(player);
         }
-    };
+    }
 
     public void save() {
         //use a new  FileOutputStream and write to object
@@ -50,6 +47,6 @@ class Board {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    };
+    }
 
 }

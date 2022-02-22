@@ -7,7 +7,6 @@ public class StoryLine {
     TriviaItem triviaItem;
     Player player = new Player();
     int chances = player.getChances();
-    //    int questionIndex = 0;
     private Scanner scanner = new Scanner(System.in);
     private boolean isCorrect;
     private boolean canConclude;
@@ -28,7 +27,6 @@ public class StoryLine {
     }
 
     // Business methods
-    // instead of Random, should we implement order?
     public TriviaItem getTrivia() { //retrieve a Trivia question from TriviaQ's
         QuestionBank triviaQ = new QuestionBank();
         int questionIndex = getRandomInt(0, 3);
@@ -37,20 +35,12 @@ public class StoryLine {
     }
 
     public static int getRandomInt(int min, int max) {
-        int result = 0;
+        int result;
         double random = Math.random();
         int scaled = (int) (random * max);
         result = scaled + min;
         return result;
     }
-
-
-//    public TriviaItem getTrivia2() { //retrieve a Trivia question from TriviaQ's
-//        QuestionBank triviaQ = new QuestionBank();
-//        triviaItem = triviaQ.triviaData.get(getQuestionIndex());
-//        setQuestionIndex(++questionIndex);
-//        return triviaItem;
-//    }
 
     public void getQuestion() {
         if (chances > 0) {
@@ -81,9 +71,6 @@ public class StoryLine {
                 setCorrect(false);
                 System.out.println("incorrect answer, chances: " + chances);
             }
-//        if (chances == 0) {
-//            getYouFailed();
-//        }
         }
         return result;
     }
@@ -109,20 +96,6 @@ public class StoryLine {
         game.saveBoard("Board update: fail");
         // exit the program and display score
     }
-
-//    private void updateBoard() {
-//        Game game = new Game();
-//        game.updateBoard();
-//    }
-
-    // Accessor methods
-//    public Collection<String> getScenes() {
-//        return scenes;
-//    }
-//
-//    public void setScenes(Collection<String> scenes) {
-//        this.scenes = scenes;
-//    }
 
     // Accessory Methods
     public String getScene1() {
@@ -156,18 +129,6 @@ public class StoryLine {
     public void setScene4(String scene4) {
         this.scene4 = scene4;
     }
-
-//    public int getQuestionIndex() {
-//        return questionIndex;
-//    }
-//
-//    public void setQuestionIndex(int questionIndex) {
-//        this.questionIndex = questionIndex;
-//    }
-
-//    public int getClueIndex() {
-//        return clueIndex;
-//    }
 
     public void setClueIndex(int clueIndex) {
         this.clueIndex = clueIndex;
