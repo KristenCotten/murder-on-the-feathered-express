@@ -3,7 +3,6 @@ package com.murderexpress;
 import java.util.*;
 //Done format so that updateBoard is not called twice at end.
 public class StoryLine {
-
     // fields
     TriviaItem triviaItem;
     Player player = new Player();
@@ -20,8 +19,7 @@ public class StoryLine {
     int clueIndex = 0;
     String[] clues = new String[]{"This is clue 1", "This is clue 2", "This is clue 3"};
 
-    // Constructor
-
+    // ctor
     public StoryLine(String scene1, String scene2, String scene3, String scene4) {
         setScene1(scene1);
         setScene2(scene2);
@@ -30,9 +28,10 @@ public class StoryLine {
     }
 
     // Business methods
-    public TriviaItem getTrivia() { //retrieve a TriviaItem from QuestionBank
+    // instead of Random, should we implement order?
+    public TriviaItem getTrivia() { //retrieve a Trivia question from TriviaQ's
         QuestionBank triviaQ = new QuestionBank();
-        int questionIndex = getRandomInt(0, 29);
+        int questionIndex = getRandomInt(0, 3);
         triviaItem = triviaQ.triviaData.get(questionIndex);
         return triviaItem;
     }
@@ -45,6 +44,14 @@ public class StoryLine {
         return result;
     }
 
+
+//    public TriviaItem getTrivia2() { //retrieve a Trivia question from TriviaQ's
+//        QuestionBank triviaQ = new QuestionBank();
+//        triviaItem = triviaQ.triviaData.get(getQuestionIndex());
+//        setQuestionIndex(++questionIndex);
+//        return triviaItem;
+//    }
+
     public void getQuestion() {
         if (chances > 0) {
             String question = triviaItem.getQuestion();
@@ -55,7 +62,6 @@ public class StoryLine {
     }
 
     public boolean checkAnswer() {  //wrong answer->decrease chances
-
         // correct answer-> player can move forward
 
         boolean result = false;
@@ -74,19 +80,6 @@ public class StoryLine {
                 player.setChances(chances--);
                 setCorrect(false);
                 System.out.println("incorrect answer, chances: " + chances);
-                                    // correct answer-> player can move forward
-        boolean result;
-        System.out.print("Please enter [T]rue or [F]alse: ");
-        String userAnswer = scanner.nextLine();
-        String questionAnswer = triviaItem.getAnswer();
-        if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
-            result = true;
-            System.out.println("correct");
-        } else {
-            player.setChances(chances--);
-            result = false;
-            if(chances == 0){
-                getYouFailed();
             }
 //        if (chances == 0) {
 //            getYouFailed();
@@ -122,8 +115,16 @@ public class StoryLine {
 //        game.updateBoard();
 //    }
 
-
     // Accessor methods
+//    public Collection<String> getScenes() {
+//        return scenes;
+//    }
+//
+//    public void setScenes(Collection<String> scenes) {
+//        this.scenes = scenes;
+//    }
+
+    // Accessory Methods
     public String getScene1() {
         return scene1;
     }

@@ -26,8 +26,6 @@ class Board {
         return board;
     };
 
-    //private updateScoreBoard(String userName, Result result) {
-    //};
 
     public boolean isEmpty() {
         return playerMap.isEmpty();
