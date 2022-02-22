@@ -3,11 +3,14 @@ package com.murderexpress;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
+import java.io.Serializable;
 
-class Board {
-    private Map<Integer, String> playerMap;
+
+class Board implements Serializable {
+    public ArrayList<String> playerList = new ArrayList<>();
 
     public boolean isEmpty;
 
@@ -26,18 +29,21 @@ class Board {
         return board;
     };
 
-
-
     public boolean isEmpty() {
-        return playerMap.isEmpty();
+        return playerList.isEmpty();
+    }
+
+    public void update(String userName) {
+        playerList.add(userName);
+        save();
     }
 
     public void show() {
         System.out.println();
-        System.out.println("Murder on the Feathered Express Results");
-        System.out.println("=================");
-        Collection<String> players = playerMap.values(); //superfluous, returns all values from right side of map
-        for (String player : players) {
+        System.out.println("=======================================");
+        System.out.println("Murder on the Feathered Express Winners");
+        System.out.println("=======================================");
+        for (String player : playerList) {
             System.out.println(player);
         }
     }

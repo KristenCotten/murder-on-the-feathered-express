@@ -1,13 +1,15 @@
 package com.murderexpress;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 public class Game {
-    private Board board = Board.getInstance();
+    public Board board = Board.getInstance();
     private Scanner scanner = new Scanner(System.in);
     boolean isOver = false;
     private StoryLine storyLine;
     private Player player = new Player();
+    private String userName;
 
 
     public void execute() {
@@ -15,6 +17,7 @@ public class Game {
             welcome();
             chooseStoryId();// choose the story here
             playGame(storyLine);
+            updateBoard(userName);
             showBoard();
             end();
             isOver = true;
@@ -24,14 +27,12 @@ public class Game {
 
     private void welcome() {
         System.out.println("WELCOME to the app, please enter a user name");
-        String input = scanner.nextLine();
-        player.setUserName(input);
-
+        userName = scanner.nextLine();
+        player.setUserName(userName);
     }
 
     private void playGame(StoryLine storyLine) {
         System.out.println("Hello, " + player.getUserName());
-
 
         System.out.println(storyLine.getScene1());
         storyLine.getTrivia();
@@ -85,16 +86,13 @@ public class Game {
         }
         return storyLine;
     }
-        // will passing in a player obj and
-    public void saveBoard(String input) {
-        System.out.println(input);
-        // save() from board?
-//        board.save();
+
+    public void updateBoard(String userName){
+        board.update(userName);
     }
 
     private void showBoard() {
-        System.out.println("SHOWING BOARD");
-//        board.show();
+        board.show();
     }
 
     private void end() {
