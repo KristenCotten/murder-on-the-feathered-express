@@ -32,7 +32,7 @@ public class Game {
 
     private void playGame(StoryLine storyLine) {
         System.out.println("Hello, " + player.getUserName());
-        storyLine.getScene1();
+        System.out.println(storyLine.getScene1());
         // trivia logic
         storyLine.getTrivia();
         storyLine.getQuestion();
@@ -44,19 +44,19 @@ public class Game {
 //        }
         // scanner for answer?
 
-        storyLine.getScene2();
+        System.out.println(storyLine.getScene2());
         // trivia logic
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
-        storyLine.getScene3();
+        System.out.println(storyLine.getScene3());
         // trivia logic
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
-        storyLine.getScene4();
+        System.out.println(storyLine.getScene4());
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
@@ -67,14 +67,12 @@ public class Game {
     }
 
     private StoryLine chooseStoryId() {
-        // story here
-
         int id = 0;
         boolean validInput = false;
         while (!validInput) {
-            System.out.print("Choose story: 1, 2, or 3");
+            System.out.print("Choose story: 1, 2, or 3 ");
             String input = scanner.nextLine();
-            if (input.matches("\\d{1}")) { // any digit, one or two times - now proceed
+            if (input.matches("\\d{1}")) { // any single digit
                 id = Integer.parseInt(input); // will not blow up - you got digits
                 if (id >= 1 && id <= 3) {
                     validInput = true;
@@ -90,9 +88,7 @@ public class Game {
         if (id == 3) {
             storyLine = storyLineThree();
         }
-
         return storyLine;
-
     }
 
     private void updateBoard() {
@@ -108,17 +104,17 @@ public class Game {
     }
 
     private StoryLine storyLineOne() {
-        StoryLine storyLine = new StoryLine("The beginning", "the middle", "middle end", "end");
+        StoryLine storyLine = new StoryLine("The beginning1", "the middle1", "middle end1", "end1");
         return storyLine;
     }
 
     private StoryLine storyLineTwo() {
-        StoryLine storyLine = new StoryLine("The beginning", "the middle", "middle end", "end");
+        StoryLine storyLine = new StoryLine("The beginning2", "the middle2", "middle end2", "end2");
         return storyLine;
     }
 
     private StoryLine storyLineThree() {
-        StoryLine storyLine = new StoryLine("The beginning", "the middle", "middle end", "end");
+        StoryLine storyLine = new StoryLine("The beginning3", "the middle3", "middle end3", "end3");
         return storyLine;
     }
 
