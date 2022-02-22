@@ -1,11 +1,5 @@
 package com.murderexpress;
 
-import com.sun.source.tree.Tree;
-
-import java.util.Collection;
-import java.util.List;
-import java.util.TreeMap;
-
 public class TriviaItem {
     private int id;
     private String question;

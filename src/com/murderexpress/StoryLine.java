@@ -1,7 +1,7 @@
 package com.murderexpress;
 
 import java.util.*;
-//Done format so that updateBoard is not called twice at end.
+
 public class StoryLine {
     // fields
     TriviaItem triviaItem;
@@ -29,7 +29,7 @@ public class StoryLine {
     // Business methods
     public TriviaItem getTrivia() { //retrieve a Trivia question from TriviaQ's
         QuestionBank triviaQ = new QuestionBank();
-        int questionIndex = getRandomInt(0, 3);
+        int questionIndex = getRandomInt(0, 29);
         triviaItem = triviaQ.triviaData.get(questionIndex);
         return triviaItem;
     }
@@ -46,6 +46,7 @@ public class StoryLine {
         if (chances > 0) {
             String question = triviaItem.getQuestion();
             System.out.println("question: " + question);
+            System.out.print("Please enter [T]rue or [F]alse: ");
         } else {
             getYouFailed();
         }
@@ -55,15 +56,15 @@ public class StoryLine {
         // correct answer-> player can move forward
 
         boolean result = false;
-        System.out.print("Please enter [T]rue or [F]alse: ");
-        String userAnswer = scanner.nextLine();
-        if(chances > 0) {
 
+        String userAnswer = scanner.nextLine();
+
+        if(chances > 0) {
             String questionAnswer = triviaItem.getAnswer();
 
             if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
                 result = true;
-                System.out.println("");
+                System.out.println();
                 setCorrect(true);
                 setCanConclude(true);
             } else {
@@ -76,7 +77,6 @@ public class StoryLine {
     }
 
     public void getClue() {
-        // iterate a list of clues
         String clue = clues[clueIndex];
         setClueIndex(++clueIndex);
         if (isCorrect()) {
@@ -94,6 +94,7 @@ public class StoryLine {
         System.out.println("YOU were murdered before finding out who did it");
         // update fail to the file
         game.saveBoard("Board update: fail");
+        System.out.println("\nPlease hit enter to see the score board");
         // exit the program and display score
     }
 
