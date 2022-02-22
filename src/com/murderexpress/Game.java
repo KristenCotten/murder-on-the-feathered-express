@@ -32,6 +32,7 @@ public class Game {
     private void playGame(StoryLine storyLine) {
         System.out.println("Hello, " + player.getUserName());
 
+
         System.out.println(storyLine.getScene1());
         storyLine.getTrivia();
         storyLine.getQuestion();
@@ -50,6 +51,7 @@ public class Game {
         storyLine.checkAnswer();
 
         System.out.println(storyLine.getScene4());
+        storyLine.getClue();
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
