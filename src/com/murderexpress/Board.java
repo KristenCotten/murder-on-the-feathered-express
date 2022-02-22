@@ -24,7 +24,9 @@ class Board {
             board = new Board();
         }
         return board;
-    }
+    };
+
+
 
     public boolean isEmpty() {
         return playerMap.isEmpty();
