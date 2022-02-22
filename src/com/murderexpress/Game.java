@@ -37,6 +37,18 @@ public class Game {
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
+        System.out.println(storyLine.getScene1());
+        // trivia logic
+        storyLine.getTrivia();
+        storyLine.getQuestion();
+        storyLine.checkAnswer();
+//        if(storyLine.checkAnswer()){
+//            storyLine.getScene2();
+//        } else {
+//            storyLine.getQuestion();
+//        }
+        // scanner for answer?
+
 
         System.out.println(storyLine.getScene2());
         // trivia logic
@@ -56,6 +68,9 @@ public class Game {
 
         System.out.println(storyLine.getScene4());
         storyLine.getClue();
+
+        System.out.println(storyLine.getScene4());
+
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
@@ -68,14 +83,12 @@ public class Game {
     }
 
     private StoryLine chooseStoryId() {
-        // story here
-
         int id = 0;
         boolean validInput = false;
         while (!validInput) {
             System.out.print("Choose story: 1, 2, or 3 ");
             String input = scanner.nextLine();
-            if (input.matches("\\d{1}")) { // any digit, one or two times - now proceed
+            if (input.matches("\\d{1}")) { // any single digit
                 id = Integer.parseInt(input); // will not blow up - you got digits
                 if (id >= 1 && id <= 3) {
                     validInput = true;
@@ -91,9 +104,7 @@ public class Game {
         if (id == 3) {
             storyLine = storyLineThree();
         }
-
         return storyLine;
-
     }
         // will passing in a player obj and
     public void saveBoard(String input) {
