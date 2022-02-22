@@ -15,7 +15,7 @@ public class Game {
             welcome();
             chooseStoryId();// choose the story here
             playGame(storyLine);
-            updateBoard();
+//            updateBoard();
             showBoard();
             end();
             isOver = true;
@@ -32,6 +32,11 @@ public class Game {
 
     private void playGame(StoryLine storyLine) {
         System.out.println("Hello, " + player.getUserName());
+        System.out.println(storyLine.getScene1());        // trivia logic
+        storyLine.getTrivia();
+        storyLine.getQuestion();
+        storyLine.checkAnswer();
+
         System.out.println(storyLine.getScene1());
         // trivia logic
         storyLine.getTrivia();
@@ -44,24 +49,35 @@ public class Game {
 //        }
         // scanner for answer?
 
+
         System.out.println(storyLine.getScene2());
         // trivia logic
+        storyLine.getClue();
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
+
 
         System.out.println(storyLine.getScene3());
         // trivia logic
+        storyLine.getClue();
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
+
         System.out.println(storyLine.getScene4());
+        storyLine.getClue();
+
+        System.out.println(storyLine.getScene4());
+
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
         // if passed to go
-        storyLine.getConclusion();
+        if(storyLine.canConclude()){
+            storyLine.getConclusion();
+        }
 
 
     }
@@ -90,17 +106,23 @@ public class Game {
         }
         return storyLine;
     }
-
-    private void updateBoard() {
-
+        // will passing in a player obj and
+    public void saveBoard(String input) {
+        // update pass
+        System.out.println(input);
+        // save() from board?
+        // Player               // Result
+        // BOB                      PASS
+//        board.save();
     }
 
     private void showBoard() {
-
+        System.out.println("SHOWING BOARD");
+//        board.show();
     }
 
     private void end() {
-
+        System.out.println("Thank you for playing!");
     }
 
     private StoryLine storyLineOne() {

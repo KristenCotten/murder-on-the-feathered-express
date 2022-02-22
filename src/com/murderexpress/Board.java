@@ -43,7 +43,7 @@ class Board {
         }
     };
 
-    private void save() {
+    public void save() {
         //use a new  FileOutputStream and write to object
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/board.dat"))) {
             out.writeObject(this); //please write "me" (a Board object) to the file
