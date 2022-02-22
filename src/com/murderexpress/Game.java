@@ -1,6 +1,5 @@
 package com.murderexpress;
 
-import java.io.Serializable;
 import java.util.Scanner;
 
 public class Game {
@@ -109,7 +108,7 @@ public class Game {
         storyLine.checkAnswer();
         if (storyLine.canConclude()) {
             storyLine.getConclusion();
-            board.update(userName);
+            board.updatePassed(userName);
         } else {
             board.updateFailed(userName);
         }
@@ -173,7 +172,7 @@ public class Game {
     }
 
     public void updateBoard(String userName) {
-        board.update(userName);
+        board.updatePassed(userName);
     }
 
     private void showBoard() {
