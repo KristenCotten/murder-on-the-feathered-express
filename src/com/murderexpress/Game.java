@@ -15,7 +15,6 @@ public class Game {
             welcome();
             chooseStoryId();// choose the story here
             playGame(storyLine);
-//            updateBoard();
             showBoard();
             end();
             isOver = true;
@@ -108,11 +107,8 @@ public class Game {
     }
         // will passing in a player obj and
     public void saveBoard(String input) {
-        // update pass
         System.out.println(input);
         // save() from board?
-        // Player               // Result
-        // BOB                      PASS
 //        board.save();
     }
 
@@ -126,18 +122,15 @@ public class Game {
     }
 
     private StoryLine storyLineOne() {
-        StoryLine storyLine = new StoryLine("The beginning1", "the middle1", "middle end1", "end1");
-        return storyLine;
+        return new StoryLine("The beginning1", "the middle1", "middle end1", "end1");
     }
 
     private StoryLine storyLineTwo() {
-        StoryLine storyLine = new StoryLine("The beginning2", "the middle2", "middle end2", "end2");
-        return storyLine;
+        return new StoryLine("The beginning2", "the middle2", "middle end2", "end2");
     }
 
     private StoryLine storyLineThree() {
-        StoryLine storyLine = new StoryLine("The beginning3", "the middle3", "middle end3", "end3");
-        return storyLine;
+        return new StoryLine("The beginning3", "the middle3", "middle end3", "end3");
     }
 
 }
