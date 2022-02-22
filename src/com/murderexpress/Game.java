@@ -17,7 +17,6 @@ public class Game {
             welcome();
             chooseStoryId();// choose the story here
             playGame(storyLine);
-            updateBoard(userName);
             showBoard();
             end();
             isOver = true;
@@ -58,6 +57,10 @@ public class Game {
         storyLine.checkAnswer();
         if(storyLine.canConclude()){
             storyLine.getConclusion();
+            board.update(userName);
+        }
+        else {
+            board.updateFailed(userName);
         }
 
     }

@@ -85,16 +85,11 @@ public class StoryLine {
 
     public void getConclusion() { //called when player wins the game
         System.out.println("Here is the conclusion");
-        // update pass to the file
-        //game.updateBoard(player.getUserName());
     }
 
     private void getYouFailed() { //called when player uses up all 3 chances
         System.out.println("YOU were murdered before finding out who did it");
-        // update fail to the file
-        //game.saveBoard("Board update: fail");
-        //System.out.println("\nPlease hit enter to see the score board");
-        // exit the program and display score
+        System.out.println("\nPlease hit enter to see the score board");
     }
 
     // Accessory Methods
