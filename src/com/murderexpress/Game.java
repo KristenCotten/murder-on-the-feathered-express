@@ -15,7 +15,7 @@ public class Game {
             welcome();
             chooseStoryId();// choose the story here
             playGame(storyLine);
-            updateBoard();
+//            updateBoard();
             showBoard();
             end();
             isOver = true;
@@ -32,36 +32,37 @@ public class Game {
 
     private void playGame(StoryLine storyLine) {
         System.out.println("Hello, " + player.getUserName());
-        storyLine.getScene1();
-        // trivia logic
-        storyLine.getTrivia();
-        storyLine.getQuestion();
-        storyLine.checkAnswer();
-//        if(storyLine.checkAnswer()){
-//            storyLine.getScene2();
-//        } else {
-//            storyLine.getQuestion();
-//        }
-        // scanner for answer?
-
-        storyLine.getScene2();
-        // trivia logic
+        System.out.println(storyLine.getScene1());        // trivia logic
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
-        storyLine.getScene3();
+
+        System.out.println(storyLine.getScene2());
         // trivia logic
+        storyLine.getClue();
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
-        storyLine.getScene4();
+
+        System.out.println(storyLine.getScene3());
+        // trivia logic
+        storyLine.getClue();
+        storyLine.getTrivia();
+        storyLine.getQuestion();
+        storyLine.checkAnswer();
+
+
+        System.out.println(storyLine.getScene4());
+        storyLine.getClue();
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
         // if passed to go
-        storyLine.getConclusion();
+        if(storyLine.canConclude()){
+            storyLine.getConclusion();
+        }
 
 
     }
@@ -72,7 +73,7 @@ public class Game {
         int id = 0;
         boolean validInput = false;
         while (!validInput) {
-            System.out.print("Choose story: 1, 2, or 3");
+            System.out.print("Choose story: 1, 2, or 3 ");
             String input = scanner.nextLine();
             if (input.matches("\\d{1}")) { // any digit, one or two times - now proceed
                 id = Integer.parseInt(input); // will not blow up - you got digits
@@ -94,31 +95,37 @@ public class Game {
         return storyLine;
 
     }
-
-    private void updateBoard() {
-
+        // will passing in a player obj and
+    public void saveBoard(String input) {
+        // update pass
+        System.out.println(input);
+        // save() from board?
+        // Player               // Result
+        // BOB                      PASS
+//        board.save();
     }
 
     private void showBoard() {
-
+        System.out.println("SHOWING BOARD");
+//        board.show();
     }
 
     private void end() {
-
+        System.out.println("Thank you for playing!");
     }
 
     private StoryLine storyLineOne() {
-        StoryLine storyLine = new StoryLine("The beginning", "the middle", "middle end", "end");
+        StoryLine storyLine = new StoryLine("The beginning1", "the middle1", "middle end1", "end1");
         return storyLine;
     }
 
     private StoryLine storyLineTwo() {
-        StoryLine storyLine = new StoryLine("The beginning", "the middle", "middle end", "end");
+        StoryLine storyLine = new StoryLine("The beginning2", "the middle2", "middle end2", "end2");
         return storyLine;
     }
 
     private StoryLine storyLineThree() {
-        StoryLine storyLine = new StoryLine("The beginning", "the middle", "middle end", "end");
+        StoryLine storyLine = new StoryLine("The beginning3", "the middle3", "middle end3", "end3");
         return storyLine;
     }
 

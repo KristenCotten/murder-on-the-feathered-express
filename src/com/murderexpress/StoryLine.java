@@ -1,41 +1,29 @@
 package com.murderexpress;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Scanner;
-
+import java.util.*;
+//Done format so that updateBoard is not called twice at end.
 public class StoryLine {
     // fields
-    public Collection<String> scenes = new ArrayList<>();
     TriviaItem triviaItem;
     Player player = new Player();
     int chances = player.getChances();
-    int questionIndex = 0;
+    //    int questionIndex = 0;
     private Scanner scanner = new Scanner(System.in);
+    private boolean isCorrect;
+    private boolean canConclude;
+    Game game = new Game();
     String scene1;
     String scene2;
     String scene3;
     String scene4;
+    int clueIndex = 0;
+    String[] clues = new String[]{"This is clue 1", "This is clue 2", "This is clue 3"};
 
     // ctor
-//    public StoryLine(String scene1, String scene2, String scene3) {
-//        setScene1(scene1);
-//        setScene2(scene2);
-//        setScene3(scene3);
-//    }
     public StoryLine(String scene1, String scene2, String scene3, String scene4) {
         setScene1(scene1);
-        //getTrivia
-        //get question
-        //check answer
         setScene2(scene2);
-        //getTrivia
-        //get question
-        //check answer
         setScene3(scene3);
-        //getTrivia
-        //get question
-        //check answer
         setScene4(scene4);
     }
 
@@ -47,6 +35,7 @@ public class StoryLine {
         triviaItem = triviaQ.triviaData.get(questionIndex);
         return triviaItem;
     }
+
     public static int getRandomInt(int min, int max) {
         int result = 0;
         double random = Math.random();
@@ -64,50 +53,78 @@ public class StoryLine {
 //    }
 
     public void getQuestion() {
-        String question = triviaItem.getQuestion();
-        System.out.println("question: " + question);
+        if (chances > 0) {
+            String question = triviaItem.getQuestion();
+            System.out.println("question: " + question);
+        } else {
+            getYouFailed();
+        }
     }
 
     public boolean checkAnswer() {  //wrong answer->decrease chances
         // correct answer-> player can move forward
-        boolean result;
 
-        String userAnswer = scanner.nextLine();
+        boolean result = false;
         System.out.print("Please enter [T]rue or [F]alse: ");
+        String userAnswer = scanner.nextLine();
+        if(chances > 0) {
 
-        String questionAnswer = triviaItem.getAnswer();
-        if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
-            result = true;
-            System.out.println("correct");
-        } else {
-            player.setChances(chances--);
-            result = false;
-            if(chances == 0){
-                getYouFailed();
+            String questionAnswer = triviaItem.getAnswer();
+
+            if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
+                result = true;
+                System.out.println("");
+                setCorrect(true);
+                setCanConclude(true);
+            } else {
+                player.setChances(chances--);
+                setCorrect(false);
+                System.out.println("incorrect answer, chances: " + chances);
             }
-            System.out.println("false, chances: " + chances);
+//        if (chances == 0) {
+//            getYouFailed();
+//        }
         }
         return result;
     }
 
+    public void getClue() {
+        // iterate a list of clues
+        String clue = clues[clueIndex];
+        setClueIndex(++clueIndex);
+        if (isCorrect()) {
+            System.out.print(clue + "\n");
+        }
+    }
+
     public void getConclusion() { //called when player wins the game
-        System.out.println("Congrats you found out who did it");
+        System.out.println("Here is the conclusion");
+        // update pass to the file
+        game.saveBoard("Board update: pass");
     }
 
     private void getYouFailed() { //called when player uses up all 3 chances
         System.out.println("YOU were murdered before finding out who did it");
+        // update fail to the file
+        game.saveBoard("Board update: fail");
         // exit the program and display score
     }
 
+//    private void updateBoard() {
+//        Game game = new Game();
+//        game.updateBoard();
+//    }
+
     // Accessor methods
-    public Collection<String> getScenes() {
-        return scenes;
-    }
+//    public Collection<String> getScenes() {
+//        return scenes;
+//    }
+//
+//    public void setScenes(Collection<String> scenes) {
+//        this.scenes = scenes;
+//    }
 
-    public void setScenes(Collection<String> scenes) {
-        this.scenes = scenes;
-    }
-
+    // Accessory Methods
     public String getScene1() {
         return scene1;
     }
@@ -140,11 +157,35 @@ public class StoryLine {
         this.scene4 = scene4;
     }
 
-    public int getQuestionIndex() {
-        return questionIndex;
+//    public int getQuestionIndex() {
+//        return questionIndex;
+//    }
+//
+//    public void setQuestionIndex(int questionIndex) {
+//        this.questionIndex = questionIndex;
+//    }
+
+//    public int getClueIndex() {
+//        return clueIndex;
+//    }
+
+    public void setClueIndex(int clueIndex) {
+        this.clueIndex = clueIndex;
     }
 
-    public void setQuestionIndex(int questionIndex) {
-        this.questionIndex = questionIndex;
+    public boolean isCorrect() {
+        return isCorrect;
+    }
+
+    public void setCorrect(boolean correct) {
+        isCorrect = correct;
+    }
+
+    public boolean canConclude() {
+        return canConclude;
+    }
+
+    public void setCanConclude(boolean canConclude) {
+        this.canConclude = canConclude;
     }
 }
