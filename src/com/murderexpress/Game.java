@@ -36,26 +36,12 @@ public class Game {
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
-        System.out.println(storyLine.getScene1());
-        // trivia logic
-        storyLine.getTrivia();
-        storyLine.getQuestion();
-        storyLine.checkAnswer();
-//        if(storyLine.checkAnswer()){
-//            storyLine.getScene2();
-//        } else {
-//            storyLine.getQuestion();
-//        }
-        // scanner for answer?
-
-
         System.out.println(storyLine.getScene2());
         // trivia logic
         storyLine.getClue();
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
-
 
         System.out.println(storyLine.getScene3());
         // trivia logic
@@ -64,12 +50,8 @@ public class Game {
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
-
         System.out.println(storyLine.getScene4());
         storyLine.getClue();
-
-        System.out.println(storyLine.getScene4());
-
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
