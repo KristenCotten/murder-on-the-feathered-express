@@ -1,21 +1,15 @@
 package com.murderexpress;
 
 public class TriviaItem {
-    private int id;
     private String question;
     private String answer;
 
-    public TriviaItem(int id, String question, String answer) {
-        this.id = id;
+    public TriviaItem(String question, String answer) {
         setQuestion(question);
         setAnswer(answer);
     }
 
     //Accessor Methods
-    public int getId() {
-        return id;
-    }
-
     public String getQuestion() {
         return question;
     }
