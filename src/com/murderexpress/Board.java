@@ -9,8 +9,9 @@ import java.util.Map;
 import java.io.Serializable;
 
 
-class Board implements Serializable {
+public class Board implements Serializable {
     public ArrayList<String> playerList = new ArrayList<>();
+    public ArrayList<String> failedList = new ArrayList<>();
 
     public boolean isEmpty;
 
@@ -38,12 +39,24 @@ class Board implements Serializable {
         save();
     }
 
+    public void updateFailed(String userName) {
+        failedList.add(userName);
+        save();
+    }
+
     public void show() {
         System.out.println();
         System.out.println("=======================================");
         System.out.println("Murder on the Feathered Express Winners");
         System.out.println("=======================================");
         for (String player : playerList) {
+            System.out.println(player);
+        }
+        System.out.println();
+        System.out.println("=======================================");
+        System.out.println("Murder on the Feathered Express Losers");
+        System.out.println("=======================================");
+        for (String player : failedList) {
             System.out.println(player);
         }
     }
