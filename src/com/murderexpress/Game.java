@@ -31,20 +31,20 @@ public class Game {
 
     private void playGame(StoryLine storyLine) {
         System.out.println("Hello, " + player.getUserName());
-        System.out.println(storyLine.getScene1());        // trivia logic
+
+
+        System.out.println(storyLine.getScene1());
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
         System.out.println(storyLine.getScene2());
-        // trivia logic
         storyLine.getClue();
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
 
         System.out.println(storyLine.getScene3());
-        // trivia logic
         storyLine.getClue();
         storyLine.getTrivia();
         storyLine.getQuestion();
@@ -55,11 +55,9 @@ public class Game {
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
-        // if passed to go
         if(storyLine.canConclude()){
             storyLine.getConclusion();
         }
-
 
     }
 
@@ -69,8 +67,8 @@ public class Game {
         while (!validInput) {
             System.out.print("Choose story: 1, 2, or 3 ");
             String input = scanner.nextLine();
-            if (input.matches("\\d{1}")) { // any single digit
-                id = Integer.parseInt(input); // will not blow up - you got digits
+            if (input.matches("\\d")) {
+                id = Integer.parseInt(input);
                 if (id >= 1 && id <= 3) {
                     validInput = true;
                 }
