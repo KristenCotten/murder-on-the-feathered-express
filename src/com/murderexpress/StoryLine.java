@@ -44,7 +44,7 @@ public class StoryLine {
     public void getQuestion() {
         if (CHANCES > 0) {
             String question = triviaItem.getQuestion();
-            System.out.println("question: " + question);
+            System.out.println("\nquestion: " + question);
             System.out.print("Please enter [T]rue or [F]alse: ");
         } else {
             getYouFailed();
@@ -69,7 +69,7 @@ public class StoryLine {
             } else {
                 CHANCES--;
                 setCorrect(false);
-                System.out.println("incorrect answer, chances: " + CHANCES);
+                System.out.println("\nincorrect answer, chances: " + CHANCES);
             }
         }
         return result;

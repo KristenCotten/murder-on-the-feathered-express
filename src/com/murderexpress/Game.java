@@ -25,14 +25,66 @@ public class Game {
     }
 
     private void welcome() {
-        System.out.println("WELCOME to the app, please enter a user name");
+        System.out.println("     ██████   ██████                          █████                   \n" +
+                "   ░░██████ ██████                          ░░███                    \n" +
+                "    ░███░█████░███  █████ ████ ████████   ███████   ██████  ████████ \n" +
+                "    ░███░░███ ░███ ░░███ ░███ ░░███░░███ ███░░███  ███░░███░░███░░███\n" +
+                "    ░███ ░░░  ░███  ░███ ░███  ░███ ░░░ ░███ ░███ ░███████  ░███ ░░░ \n" +
+                "    ░███      ░███  ░███ ░███  ░███     ░███ ░███ ░███░░░   ░███     \n" +
+                "    █████     █████ ░░████████ █████    ░░████████░░██████  █████    \n" +
+                "   ░░░░░     ░░░░░   ░░░░░░░░ ░░░░░      ░░░░░░░░  ░░░░░░  ░░░░░     \n" +
+                "                                                                  ");
+        System.out.println("             ▄▀▀▀▀▄   ▄▀▀▄ ▀▄      ▄▀▀▀█▀▀▄  ▄▀▀▄ ▄▄   ▄▀▀█▄▄▄▄ \n" +
+                "           █      █ █  █ █ █     █    █  ▐ █  █   ▄▀ ▐  ▄▀   ▐ \n" +
+                "           █      █ ▐  █  ▀█     ▐   █     ▐  █▄▄▄█    █▄▄▄▄▄  \n" +
+                "           ▀▄    ▄▀   █   █         █         █   █    █    ▌  \n" +
+                "             ▀▀▀▀   ▄▀   █        ▄▀         ▄▀  ▄▀   ▄▀▄▄▄▄   \n" +
+                "                    █    ▐       █          █   █     █    ▐   \n" +
+                "                    ▐            ▐          ▐   ▐     ▐        ");
+
+        System.out.println("  █████▒▓█████ ▄▄▄     ▄▄▄█████▓ ██░ ██  █    ██  ██▀███  ▓█████ ▓█████▄ \n" +
+                "▓██   ▒ ▓█   ▀▒████▄   ▓  ██▒ ▓▒▓██░ ██▒ ██  ▓██▒▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌\n" +
+                "▒████ ░ ▒███  ▒██  ▀█▄ ▒ ▓██░ ▒░▒██▀▀██░▓██  ▒██░▓██ ░▄█ ▒▒███   ░██   █▌\n" +
+                "░▓█▒  ░ ▒▓█  ▄░██▄▄▄▄██░ ▓██▓ ░ ░▓█ ░██ ▓▓█  ░██░▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌\n" +
+                "░▒█░    ░▒████▒▓█   ▓██▒ ▒██▒ ░ ░▓█▒░██▓▒▒█████▓ ░██▓ ▒██▒░▒████▒░▒████▓ \n" +
+                " ▒ ░    ░░ ▒░ ░▒▒   ▓▒█░ ▒ ░░    ▒ ░░▒░▒░▒▓▒ ▒ ▒ ░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ \n" +
+                " ░       ░ ░  ░ ▒   ▒▒ ░   ░     ▒ ░▒░ ░░░▒░ ░ ░   ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒ \n" +
+                " ░ ░       ░    ░   ▒    ░       ░  ░░ ░ ░░░ ░ ░   ░░   ░    ░    ░ ░  ░ \n" +
+                "           ░  ░     ░  ░         ░  ░  ░   ░        ░        ░  ░   ░    \n" +
+                "                                                                  ░      ");
+        System.out.println("     ██████████                                                         \n" +
+                "   ░░███░░░░░█                                                         \n" +
+                "    ░███  █ ░  █████ █████ ████████  ████████   ██████   █████   █████ \n" +
+                "    ░██████   ░░███ ░░███ ░░███░░███░░███░░███ ███░░███ ███░░   ███░░  \n" +
+                "    ░███░░█    ░░░█████░   ░███ ░███ ░███ ░░░ ░███████ ░░█████ ░░█████ \n" +
+                "    ░███ ░   █  ███░░░███  ░███ ░███ ░███     ░███░░░   ░░░░███ ░░░░███\n" +
+                "    ██████████ █████ █████ ░███████  █████    ░░██████  ██████  ██████ \n" +
+                "   ░░░░░░░░░░ ░░░░░ ░░░░░  ░███░░░  ░░░░░      ░░░░░░  ░░░░░░  ░░░░░░  \n" +
+                "                           ░███                                        \n" +
+                "                           █████                                       \n" +
+                "                          ░░░░░                                        ");
+
+        System.out.println("                                                                       ");
+        System.out.println("                                                                       ");
+        System.out.print("Please enter your name: ");
         userName = scanner.nextLine();
         player.setUserName(userName);
+        System.out.println();
+        System.out.println("\nHello " + player.getUserName() + ", please read this letter to get started.");
+        System.out.println();
+        System.out.println("         __________________\n" +
+                "        |\\                /|\n" +
+                "        | \\              / |  \n" +
+                "        | /\\____________/\\ |  \n" +
+                "        |/                \\|  \n" +
+                "        |__________________|  ");
+        System.out.println();
+        System.out.print("[O]pen: ");
+        openLetter();
+
     }
 
     private void playGame(StoryLine storyLine) {
-        System.out.println("Hello, " + player.getUserName());
-
         System.out.println(storyLine.getScene1());
         storyLine.getTrivia();
         storyLine.getQuestion();
@@ -55,21 +107,51 @@ public class Game {
         storyLine.getTrivia();
         storyLine.getQuestion();
         storyLine.checkAnswer();
-        if(storyLine.canConclude()){
+        if (storyLine.canConclude()) {
             storyLine.getConclusion();
             board.update(userName);
-        }
-        else {
+        } else {
             board.updateFailed(userName);
         }
 
+    }
+
+    private void openLetter() {
+        boolean validInput = false;
+        while (!validInput) {
+            String input = scanner.nextLine();
+            if (input.matches("o|O|open|Open")) {
+                System.out.println("   ______________________________\n" +
+                        " / \\                             \\.\n" +
+                        "|   |  Your goal is to solve the |.\n" +
+                        " \\_ |  murder before you run out |.\n" +
+                        "    |  of chances.               |.\n" +
+                        "    |                            |.\n" +
+                        "    |  Please, be careful. The   |.\n" +
+                        "    |  killer is out there.      |.\n" +
+                        "    |                            |.\n" +
+                        "    |  Good Luck!                |.\n" +
+                        "    |   _________________________|___\n" +
+                        "    |  /                            /.\n" +
+                        "    \\_/____________________________/.");
+                validInput = true;
+            }
+        }
     }
 
     private StoryLine chooseStoryId() {
         int id = 0;
         boolean validInput = false;
         while (!validInput) {
-            System.out.print("Choose story: 1, 2, or 3 ");
+            System.out.println();
+            System.out.println();
+            System.out.println("    *******************************");
+            System.out.println("    *   Choose a story to begin   *");
+            System.out.println("    *   [1]       [2]       [3]   *");
+            System.out.println("    *    🦆        🦆        🦆    *");
+            System.out.println("    *******************************");
+            System.out.println();
+            System.out.print("Which one will it be? ");
             String input = scanner.nextLine();
             if (input.matches("\\d")) {
                 id = Integer.parseInt(input);
@@ -90,7 +172,7 @@ public class Game {
         return storyLine;
     }
 
-    public void updateBoard(String userName){
+    public void updateBoard(String userName) {
         board.update(userName);
     }
 
@@ -99,19 +181,19 @@ public class Game {
     }
 
     private void end() {
-        System.out.println("Thank you for playing!");
+        System.out.println("\nThank you for playing!");
     }
 
     private StoryLine storyLineOne() {
-        return new StoryLine("The beginning1", "the middle1", "middle end1", "end1");
+        return new StoryLine("\nThe beginning1", "\nthe middle1", "\nmiddle end1", "\nend1");
     }
 
     private StoryLine storyLineTwo() {
-        return new StoryLine("The beginning2", "the middle2", "middle end2", "end2");
+        return new StoryLine("\nThe beginning2", "\nthe middle2", "\nmiddle end2", "\nend2");
     }
 
     private StoryLine storyLineThree() {
-        return new StoryLine("The beginning3", "the middle3", "middle end3", "end3");
+        return new StoryLine("\nThe beginning3", "\nthe middle3", "\nmiddle end3", "\nend3");
     }
 
 }

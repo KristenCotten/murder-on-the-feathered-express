@@ -4,16 +4,12 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Map;
 import java.io.Serializable;
 
 
 public class Board implements Serializable {
     public ArrayList<String> playerList = new ArrayList<>();
     public ArrayList<String> failedList = new ArrayList<>();
-
-    public boolean isEmpty;
 
     public static Board getInstance() { //instantiates the board
         Board board = null;
@@ -30,9 +26,6 @@ public class Board implements Serializable {
         return board;
     };
 
-    public boolean isEmpty() {
-        return playerList.isEmpty();
-    }
 
     public void update(String userName) {
         playerList.add(userName);
@@ -46,18 +39,22 @@ public class Board implements Serializable {
 
     public void show() {
         System.out.println();
-        System.out.println("=======================================");
-        System.out.println("Murder on the Feathered Express Winners");
-        System.out.println("=======================================");
-        for (String player : playerList) {
-            System.out.println(player);
+        if(playerList.size() > 0) {
+            System.out.println("=======================================");
+            System.out.println("Murder on the Feathered Express Winners");
+            System.out.println("=======================================");
+            for (String player : playerList) {
+                System.out.println(player);
+            }
         }
-        System.out.println();
-        System.out.println("=======================================");
-        System.out.println("Murder on the Feathered Express Losers");
-        System.out.println("=======================================");
-        for (String player : failedList) {
-            System.out.println(player);
+        if(failedList.size() > 0) {
+            System.out.println();
+            System.out.println("=======================================");
+            System.out.println("Murder on the Feathered Express Losers");
+            System.out.println("=======================================");
+            for (String player : failedList) {
+                System.out.println(player);
+            }
         }
     }
 
