@@ -2,15 +2,14 @@ package com.murderexpress;
 
 import java.util.*;
 
+import static com.murderexpress.Player.CHANCES;
+
 public class StoryLine {
     // fields
     TriviaItem triviaItem;
-    Player player = new Player();
-    int chances = player.getChances();
     private Scanner scanner = new Scanner(System.in);
     private boolean isCorrect;
     private boolean canConclude;
-    Game game = new Game();
     String scene1;
     String scene2;
     String scene3;
@@ -43,7 +42,7 @@ public class StoryLine {
     }
 
     public void getQuestion() {
-        if (chances > 0) {
+        if (CHANCES > 0) {
             String question = triviaItem.getQuestion();
             System.out.println("question: " + question);
             System.out.print("Please enter [T]rue or [F]alse: ");
@@ -59,7 +58,7 @@ public class StoryLine {
 
         String userAnswer = scanner.nextLine();
 
-        if(chances > 0) {
+        if(CHANCES > 0) {
             String questionAnswer = triviaItem.getAnswer();
 
             if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
@@ -68,9 +67,9 @@ public class StoryLine {
                 setCorrect(true);
                 setCanConclude(true);
             } else {
-                player.setChances(chances--);
+                CHANCES--;
                 setCorrect(false);
-                System.out.println("incorrect answer, chances: " + chances);
+                System.out.println("incorrect answer, chances: " + CHANCES);
             }
         }
         return result;
@@ -87,14 +86,14 @@ public class StoryLine {
     public void getConclusion() { //called when player wins the game
         System.out.println("Here is the conclusion");
         // update pass to the file
-        game.saveBoard("Board update: pass");
+        //game.updateBoard(player.getUserName());
     }
 
     private void getYouFailed() { //called when player uses up all 3 chances
         System.out.println("YOU were murdered before finding out who did it");
         // update fail to the file
-        game.saveBoard("Board update: fail");
-        System.out.println("\nPlease hit enter to see the score board");
+        //game.saveBoard("Board update: fail");
+        //System.out.println("\nPlease hit enter to see the score board");
         // exit the program and display score
     }
 

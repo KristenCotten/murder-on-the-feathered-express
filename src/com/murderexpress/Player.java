@@ -4,7 +4,7 @@ class Player {
 
     //fields
     private String userName;
-    private int chances = 3; //player starts with 3 lives
+    static int CHANCES = 3; //player starts with 3 lives
 
 
     //Accessor Methods
@@ -17,10 +17,10 @@ class Player {
     }
 
     public int getChances() {
-        return chances;
+        return CHANCES;
     }
 
     public void setChances(int chances) {
-        this.chances = chances;
+        this.CHANCES = chances;
     }
 }
