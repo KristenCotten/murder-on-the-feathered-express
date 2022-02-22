@@ -8,8 +8,8 @@ import java.io.Serializable;
 
 
 public class Board implements Serializable {
-    public ArrayList<String> playerList = new ArrayList<>();
-    public ArrayList<String> failedList = new ArrayList<>();
+    public ArrayList<String> passedUserList = new ArrayList<>();
+    public ArrayList<String> failedUserList = new ArrayList<>();
 
     public static Board getInstance() { //instantiates the board
         Board board = null;
@@ -27,32 +27,32 @@ public class Board implements Serializable {
     };
 
 
-    public void update(String userName) {
-        playerList.add(userName);
+    public void updatePassed(String userName) {
+        passedUserList.add(userName);
         save();
     }
 
     public void updateFailed(String userName) {
-        failedList.add(userName);
+        failedUserList.add(userName);
         save();
     }
 
     public void show() {
         System.out.println();
-        if(playerList.size() > 0) {
+        if(passedUserList.size() > 0) {
             System.out.println("=======================================");
             System.out.println("Murder on the Feathered Express Winners");
             System.out.println("=======================================");
-            for (String player : playerList) {
+            for (String player : passedUserList) {
                 System.out.println(player);
             }
         }
-        if(failedList.size() > 0) {
+        if(failedUserList.size() > 0) {
             System.out.println();
             System.out.println("=======================================");
             System.out.println("Murder on the Feathered Express Losers");
             System.out.println("=======================================");
-            for (String player : failedList) {
+            for (String player : failedUserList) {
                 System.out.println(player);
             }
         }

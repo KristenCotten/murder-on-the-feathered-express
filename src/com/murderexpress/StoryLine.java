@@ -51,8 +51,7 @@ public class StoryLine {
         }
     }
 
-    public boolean checkAnswer() {  //wrong answer->decrease chances
-        // correct answer-> player can move forward
+    public boolean checkAnswer() {
 
         boolean result = false;
 
@@ -61,7 +60,7 @@ public class StoryLine {
         if(CHANCES > 0) {
             String questionAnswer = triviaItem.getAnswer();
 
-            if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
+            if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) {
                 result = true;
                 System.out.println();
                 setCorrect(true);
