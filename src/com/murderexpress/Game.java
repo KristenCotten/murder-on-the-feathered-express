@@ -17,7 +17,7 @@ public class Game extends Thread {
         while (!isOver) {
             try {
                 welcome();
-                Thread.sleep(20000);
+                Thread.sleep(20000); //
                 chooseStoryId();// choose the story here
                 playGame(storyLine);
                 showBoard();
@@ -121,34 +121,34 @@ public class Game extends Thread {
             Thread.sleep(2000);
             storyLine.checkAnswer();
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             System.out.println(storyLine.getScene2());
-            storyLine.getClue();
+//            storyLine.getClue();
             storyLine.getTrivia();
             Thread.sleep(5000);
             storyLine.getQuestion();
             Thread.sleep(2000);
             storyLine.checkAnswer();
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             System.out.println(storyLine.getScene3());
-            storyLine.getClue();
+//            storyLine.getClue();
             storyLine.getTrivia();
             Thread.sleep(5000);
             storyLine.getQuestion();
             Thread.sleep(2000);
             storyLine.checkAnswer();
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             System.out.println(storyLine.getScene4());
-            storyLine.getClue();
+//            storyLine.getClue();
             storyLine.getTrivia();
             Thread.sleep(5000);
             storyLine.getQuestion();
             Thread.sleep(2000);
             storyLine.checkAnswer();
 
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             if (storyLine.canConclude()) {
                 storyLine.getConclusion(userName);
                 try {
