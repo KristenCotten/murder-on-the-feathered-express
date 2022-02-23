@@ -1,5 +1,6 @@
 package com.murderexpress;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class Game {
     private String userName;
 
 
-    public void execute() {
+    public void execute() throws IOException {
         while (!isOver) {
             welcome();
             chooseStoryId();// choose the story here
@@ -30,7 +31,7 @@ public class Game {
         player.setUserName(userName);
     }
 
-    private void playGame(StoryLine storyLine) {
+    private void playGame(StoryLine storyLine) throws IOException {
         System.out.println("Hello, " + player.getUserName());
 
         System.out.println(storyLine.getScene1());

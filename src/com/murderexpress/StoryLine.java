@@ -1,5 +1,6 @@
 package com.murderexpress;
 
+import java.io.IOException;
 import java.util.*;
 
 import static com.murderexpress.Player.CHANCES;
@@ -26,10 +27,12 @@ public class StoryLine {
     }
 
     // Business methods
-    public TriviaItem getTrivia() { //retrieve a Trivia question from TriviaQ's
-        QuestionBank triviaQ = new QuestionBank();
+    public TriviaItem getTrivia() throws IOException { //retrieve a Trivia question from TriviaQ's
+        //QuestionBank triviaQ = new QuestionBank();
+        QuestionBank qLoader = new QuestionBank("data/questions.csv");
+        List<TriviaItem> triviaQs = qLoader.load();
         int questionIndex = getRandomInt(0, 29);
-        triviaItem = triviaQ.triviaData.get(questionIndex);
+        triviaItem = triviaQs.get(questionIndex);
         return triviaItem;
     }
 

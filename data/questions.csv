@@ -1,0 +1,30 @@
+There is typically one main method.,T
+Java is not portable.,F
+The default value for primitive types that are not explicitly initialized is 'null',F
+A method can be marked as private.,T
+It is safe to compare Strings with ==,F
+Throwable is the superclass of all exceptions.,T
+The JUnit test runner executes our tests in the order they appear in the class.,F
+Java bytecode uses the .byte extension,F
+Duplicates are allowed in sets.,F
+The comparable interface defines the natural order of a class.,T
+Anywhere a functional interface type is expected, a compatible lamba can be used.,T
+You schedule a thread for execution by invoking its run() method.,F
+A solution to race conditions is synchronization via locking mechanisms using mutexes.,T
+An inner class and a static nested class are the same.,F
+Annotations are not defined as an @interface.,F
+A lambda expression is the same as an anonymous method.,T
+Generics add type safety to collections,T
+You may have duplicate keys in a Map,F
+Every class has at least one constructor.,T
+Every field in the equals() check is used in hashcode().,T
+StringBuffer is not thread safe.,F
+Strings are immutable.,T
+Static fields are common, or shared among instances.,T
+A package is a collection of related classes.,T
+Using import statements are mandatory.,F
+You can change the length of an array after it has been created.,F
+A method must declare a checked exception via 'throws'.,T
+Interfaces are used to define but not implement behavior (methods).,T
+When writing test cases, it is best practice to have one test verify multiple pieces of functionality.,F
+Local variables can not be accessed outside the method in which they were declared.,T
