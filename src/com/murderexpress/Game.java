@@ -112,38 +112,56 @@ public class Game extends Thread {
     }
 
     private void playGame(StoryLine storyLine) throws IOException {
-        System.out.println(storyLine.getScene1());
-        storyLine.getTrivia();
-        storyLine.getQuestion();
-        storyLine.checkAnswer();
+        try {
+            Thread.sleep(1000);
+            System.out.println(storyLine.getScene1());
+            storyLine.getTrivia();
+            Thread.sleep(5000);
+            storyLine.getQuestion();
+            Thread.sleep(2000);
+            storyLine.checkAnswer();
 
-        System.out.println(storyLine.getScene2());
-        storyLine.getClue();
-        storyLine.getTrivia();
-        storyLine.getQuestion();
-        storyLine.checkAnswer();
+            Thread.sleep(1000);
+            System.out.println(storyLine.getScene2());
+            storyLine.getClue();
+            storyLine.getTrivia();
+            Thread.sleep(5000);
+            storyLine.getQuestion();
+            Thread.sleep(2000);
+            storyLine.checkAnswer();
 
-        System.out.println(storyLine.getScene3());
-        storyLine.getClue();
-        storyLine.getTrivia();
-        storyLine.getQuestion();
-        storyLine.checkAnswer();
+            Thread.sleep(1000);
+            System.out.println(storyLine.getScene3());
+            storyLine.getClue();
+            storyLine.getTrivia();
+            Thread.sleep(5000);
+            storyLine.getQuestion();
+            Thread.sleep(2000);
+            storyLine.checkAnswer();
 
-        System.out.println(storyLine.getScene4());
-        storyLine.getClue();
-        storyLine.getTrivia();
-        storyLine.getQuestion();
-        storyLine.checkAnswer();
-        if (storyLine.canConclude()) {
-            storyLine.getConclusion(userName);
-            try {
-                Thread.sleep(30000);
-                board.updatePassed(userName);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            Thread.sleep(1000);
+            System.out.println(storyLine.getScene4());
+            storyLine.getClue();
+            storyLine.getTrivia();
+            Thread.sleep(5000);
+            storyLine.getQuestion();
+            Thread.sleep(2000);
+            storyLine.checkAnswer();
+
+            Thread.sleep(1000);
+            if (storyLine.canConclude()) {
+                storyLine.getConclusion(userName);
+                try {
+                    Thread.sleep(30000);
+                    board.updatePassed(userName);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                board.updateFailed(userName);
             }
-        } else {
-            board.updateFailed(userName);
+        } catch (InterruptedException e){
+            e.printStackTrace();
         }
 
     }

@@ -5,7 +5,7 @@ import java.util.*;
 
 import static com.murderexpress.Player.CHANCES;
 
-public class StoryLine {
+public class StoryLine extends Thread {
     // fields
     TriviaItem triviaItem;
     private Scanner scanner = new Scanner(System.in);
@@ -46,10 +46,11 @@ public class StoryLine {
 
     public void getQuestion() {
         if (CHANCES > 0) {
-            String question = triviaItem.getQuestion();
-            System.out.println("-------------------------------");
-            System.out.println("QUESTION: " + question);
-            System.out.print("Please enter [T]rue or [F]alse: ");
+
+                String question = triviaItem.getQuestion();
+                System.out.println("-------------------------------");
+                System.out.println("QUESTION: " + question);
+                System.out.print("Please enter [T]rue or [F]alse: ");
 
         } else {
             getYouFailed();
@@ -68,13 +69,13 @@ public class StoryLine {
 
             if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
                 result = true;
-                System.out.println();
+                System.out.println("CORRECT! You get a clue.");
                 setCorrect(true);
                 setCanConclude(true);
             } else {
                 CHANCES--;
                 setCorrect(false);
-                System.out.println("incorrect answer, chances: " + CHANCES);
+                    System.out.println("INCORRECT answer, chances: " + CHANCES);
 
             }
         }
