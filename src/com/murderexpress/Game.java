@@ -99,7 +99,6 @@ public class Game extends Thread {
         System.out.println();
         System.out.print("[O]pen: ");
         openLetter();
-
     }
 
     private void playGame(StoryLine storyLine) {
@@ -141,14 +140,21 @@ public class Game extends Thread {
             if (input.matches("o|O|open|Open")) {
                 System.out.println("         ______________________________\n" +
                         "        /  \\                            \\.\n" +
-                        "       |    |  Your goal is to solve the |.\n" +
-                        "        \\__ |  murder before you run out |.\n" +
-                        "            |  of chances.               |.\n" +
-                        "            |                            |.\n" +
-                        "            |  Please, be careful. The   |.\n" +
-                        "            |  killer is out there.      |.\n" +
-                        "            |                            |.\n" +
-                        "            |  Good Luck!                |.\n" +
+                        "       |    |  Something foul is afoot on |.\n" +
+                        "        \\__ |  the Feathered Express!    |.\n" +
+                        "            |  The destination for famed  |.\n" +
+                        "            |  feathered foal and fans    |.\n" +
+                        "            |  Racers have taken to the   |.\n" +
+                        "            |  railway to celebrate their |.\n" +
+                        "            |  wins on the daily races.    |.\n" +
+                        "            |  But as the wins ticked up?  |.\n" +
+                        "            |  The competition pool ticked |.\n" +
+                        "            |  down.                      |.\n" +
+                        "            |  We have to find the killer! |.\n" +
+                        "            |  Answer questions correctly & |.\n" +
+                        "            |  you may solve the mystery &  |.\n" +
+                        "            |  survive the Feathered Express!|.\n" +
+                        "            |      GOOD LUCK!               |.\n" +
                         "            |    ________________________|____\n" +
                         "            |   /                            /.\n" +
                         "            \\__/____________________________/.");
@@ -163,12 +169,14 @@ public class Game extends Thread {
         while (!validInput) {
             System.out.println();
             System.out.println();
-            System.out.println("             *********************************");
-            System.out.println("             *    Choose a story to begin    *");
-            System.out.println("             *                               *");
-            System.out.println("             *    [1]       [2]       [3]    *");
-            System.out.println("             *                               *");
-            System.out.println("             *********************************");
+            System.out.println("             **********************************************");
+            System.out.println("             *    Where does your investigation begin?    *");
+            System.out.println("             *                                            *");
+            System.out.println("             *    [1] The Turkish Ducklight to Istanbul   *");
+            System.out.println("             *    [2] The Golden Gander to Geneva         *");
+            System.out.println("             *    [3] The Pleasant Pheasant to Paris      *");
+            System.out.println("             *                                            *");
+            System.out.println("             **********************************************");
             System.out.println();
             System.out.print("Which one will it be? ");
             String input = scanner.nextLine();
@@ -228,7 +236,14 @@ public class Game extends Thread {
     }
 
     private StoryLine storyLineOne() {
-        return new StoryLine("\nThe beginning1", "\nthe middle1", "\nmiddle end1", "\nend1");
+        return new StoryLine(
+                "\nThe beginning1",
+
+                "\nthe middle1",
+
+                "\nmiddle end1",
+
+                "\nend1");
     }
 
     private StoryLine storyLineTwo() {
