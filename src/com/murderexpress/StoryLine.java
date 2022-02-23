@@ -3,19 +3,20 @@ package com.murderexpress;
 import java.io.IOException;
 import java.util.*;
 
+import static com.murderexpress.Player.CHANCES;
+
 public class StoryLine {
     // fields
     TriviaItem triviaItem;
     private Scanner scanner = new Scanner(System.in);
     private boolean isCorrect;
     private boolean canConclude;
-    Player player = new Player();
     String scene1;
     String scene2;
     String scene3;
     String scene4;
     int clueIndex = 0;
-    String[] clues = new String[]{"This is clue 1", "This is clue 2", "This is clue 3"};
+    String[] clues = new String[]{"***CLUE: A single grey feather, once vibrant but now fading***", "***CLUE: A pointed needle, grey, worn***", "***CLUE: Butterscotch and peppermint wrappers, rolled in a dirty tissue***"};
 
     // ctor
     public StoryLine(String scene1, String scene2, String scene3, String scene4) {
@@ -44,10 +45,12 @@ public class StoryLine {
     }
 
     public void getQuestion() {
-        if (Player.CHANCES > 0) {
+        if (CHANCES > 0) {
             String question = triviaItem.getQuestion();
-            System.out.println("question: " + question);
+            System.out.println("-------------------------------");
+            System.out.println("QUESTION: " + question);
             System.out.print("Please enter [T]rue or [F]alse: ");
+
         } else {
             getYouFailed();
         }
@@ -60,7 +63,7 @@ public class StoryLine {
 
         String userAnswer = scanner.nextLine();
 
-        if(Player.CHANCES > 0) {
+        if (CHANCES > 0) {
             String questionAnswer = triviaItem.getAnswer();
 
             if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
@@ -69,7 +72,7 @@ public class StoryLine {
                 setCorrect(true);
                 setCanConclude(true);
             } else {
-                Player.CHANCES--;
+                CHANCES--;
                 setCorrect(false);
                 System.out.println("incorrect answer, chances: " + CHANCES);
 
@@ -87,49 +90,61 @@ public class StoryLine {
     }
 
     public void getConclusion(String userName) { //called when player wins the game
+        System.out.println();
         System.out.println(
 
-                "          ( )\n"+
-                        "    ( )\n"+
-                        "( )\n"+
-                        "_||__ ____ ____ ____\n" +
-                        "(o)___)}___}}___}}___}\n" +
-                        "\'U\'\0 0  0 0  0 0  0 0");
+                "                   ( )\n" +
+                        "               ( )\n" +
+                        "           ( )\n" +
+                        "           _||__ ____ ____ ____\n" +
+                        "           (o)___)}___}}___}}___}\n" +
+                        "           \'U\'\0 0  0 0  0 0  0 0");
 
+        System.out.println();
         System.out.println(
-                "The train slowly pulls into the station. You're reviewing race records and have uncovered a trend.\n" +
-                        "One racer who's consistently finished second, never cracking that first place spot. A racer coming up\n" +
-                        "on retirement with a big robin's egg for wins.\n" +
-                        "You look at the clues, the handkerchief, the grey feathers, the knitting needle and it all makes sense.\n" +
+                "The train slowly pulls into the station. You're reviewing race records and have\n" +
+                        "uncovered a trend. One racer who's consistently finished second, never cracking\n" +
+                        "that first place spot. A racer coming up on retirement with a big robin's egg for wins.\n" +
+                        "You look at the clues, the handkerchief, the grey feathers, the knitting needle and it\n" +
+                        "all makes sense.\n" +
                         "\n" +
                         "You dash out of the room - rushing to send a telegram to the London offices.\n" +
-                        " As the train begins to clear, you smell the familiar scent of perfume, and see Granny, dashing at you with a sharpened knitting needle.\n" +
-                        "Murder on her mind and blood on her feathers.\n" +
-                        "You're able to successfully counter Granny's attack. Securing Granny the wayward foal at the wings.\n" +
+                        "As the train begins to clear, you smell the familiar scent of perfume, and see Granny,\n" +
+                        "dashing at you with a sharpened knitting needle. Murder on her mind and blood on her feathers.\n" +
+                        "You're able to successfully counter Granny's attack. Securing Granny, the wayward fowl at the wings.\n" +
                         "\n" +
                         "Cuffing Granny you say: \n" +
-                        "\'You gave it up granny.. all because you couldn't win. Now you won't deal with the line judge but the criminal judge. Lets go.\'\n" +
-                        "You take a deep breath. The duckraces can continue. All in a days work as a top-tier investigator on the Feathered Express.\n" +
+                        "\"You gave it up granny... all because you couldn't win. Now you won't deal with the line judge but the criminal judge. Lets go.\"\n" +
+                        "You take a deep breath. The duckraces can continue. All in a days work as a top-tier investigator on the Feathered Express.\n" + "\n" +
                         "Congratulations on your win " + userName + "!");
+        System.out.println();
+        System.out.println();
 
     }
 
     private void getYouFailed() { //called when player uses up all 3 chances
+        System.out.println();
         System.out.println(
-                "          ( )\n"+
-                        "    ( )\n"+
-                        "( )\n"+
-                        "_||__ ____ ____ ____\n" +
-                        "(o)___)}___}}___}}___}\n" +
-                        "\'U\'\0 0  0 0  0 0  0 0");
+
+                "                   ( )\n" +
+                        "               ( )\n" +
+                        "           ( )\n" +
+                        "           _||__ ____ ____ ____\n" +
+                        "           (o)___)}___}}___}}___}\n" +
+                        "           \'U\'\0 0  0 0  0 0  0 0");
+
+        System.out.println();
         System.out.println(
                 "The train slowly pulls into the station. You're reviewing race records and have uncovered a trend.\n" +
-                        "One racer who's consistently finished second, never cracking that first place spot. A racer coming up.....\n" +
-                        "You are caught off guard as a cloaked figure comes up to you and a sharp object meets your chest\n " +
-                        "You gasp for air as you fall on the ground, just another victim on the Feathered Express.");
+                        "One racer who's consistently finished second, never cracking that first place spot. A racer coming up...\n" + "\n" +
+                        "You are caught off guard as a cloaked figure comes up to you and a sharp object meets your chest\n" +
+                        "You gasp for air as you fall on the ground\n" +"\n" +
+                        "...just another victim on the Feathered Express.");
 
 
         System.out.println("\nPlease hit enter to see the score board");
+        System.out.println();
+        System.out.println();
     }
 
     // Accessory Methods
