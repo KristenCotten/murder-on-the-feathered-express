@@ -1,5 +1,6 @@
 package com.murderexpress;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -16,13 +17,13 @@ public class Game extends Thread {
         while (!isOver) {
             try {
                 welcome();
-                Thread.sleep(7000);
+                Thread.sleep(2000); //TODO-make longer
                 chooseStoryId();// choose the story here
                 playGame(storyLine);
                 showBoard();
                 Thread.sleep(3000);
                 end();
-            } catch (InterruptedException e) {
+            } catch (InterruptedException | IOException e) {
                 e.printStackTrace();
             }
             isOver = true;
@@ -79,14 +80,24 @@ public class Game extends Thread {
             System.out.println("                                                  Dev                                     ");
             System.out.println("                                                   🩸                                         ");
             System.out.println();
+
+            boolean validInput = false;
             System.out.print("Please enter your name: ");
+            while (!validInput){
+                userName = scanner.nextLine();
+                if(userName.matches("[a-zA-Z]{2,15}")) {
+                    player.setUserName(userName);
+                    validInput = true;
+                }
+                else {
+                    System.out.println("Please enter a valid user name between 2 and 15 characters (numbers not allowed)");
+                }
+            }
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        userName = scanner.nextLine();
-        player.setUserName(userName);
         System.out.println();
         System.out.println("\nHello " + player.getUserName() + ", please open and read this letter to get started.");
         System.out.println();
@@ -101,7 +112,7 @@ public class Game extends Thread {
         openLetter();
     }
 
-    private void playGame(StoryLine storyLine) {
+    private void playGame(StoryLine storyLine) throws IOException {
         System.out.println(storyLine.getScene1());
         storyLine.getTrivia();
         storyLine.getQuestion();
@@ -125,7 +136,7 @@ public class Game extends Thread {
         storyLine.getQuestion();
         storyLine.checkAnswer();
         if (storyLine.canConclude()) {
-            storyLine.getConclusion();
+            storyLine.getConclusion(userName);
             board.updatePassed(userName);
         } else {
             board.updateFailed(userName);
@@ -138,24 +149,27 @@ public class Game extends Thread {
         while (!validInput) {
             String input = scanner.nextLine();
             if (input.matches("o|O|open|Open")) {
-                System.out.println("         ______________________________\n" +
-                        "        /  \\                            \\.\n" +
-                        "       |    |  Something foul is afoot on |.\n" +
-                        "        \\__ |  the Feathered Express!    |.\n" +
-                        "            |  The destination for famed  |.\n" +
-                        "            |  feathered foal and fans    |.\n" +
-                        "            |  Racers have taken to the   |.\n" +
-                        "            |  railway to celebrate their |.\n" +
+                System.out.println("         ________________________________\n" +
+                        "        /  \\                              \\.\n" +
+                        "       |    |  Something foul is afoot on  |.\n" +
+                        "        \\__ |  the Feathered Express! The  |.\n" +
+                        "            |  destination for famed       |.\n" +
+                        "            |  feathered foal and fans     |.\n" +
+                        "            |  Racers have taken to the    |.\n" +
+                        "            |  railway to celebrate their  |.\n" +
                         "            |  wins on the daily races.    |.\n" +
                         "            |  But as the wins ticked up?  |.\n" +
                         "            |  The competition pool ticked |.\n" +
-                        "            |  down.                      |.\n" +
+                        "            |  down.                       |.\n" +
+                        "            |                              |.\n" +
                         "            |  We have to find the killer! |.\n" +
-                        "            |  Answer questions correctly & |.\n" +
-                        "            |  you may solve the mystery &  |.\n" +
-                        "            |  survive the Feathered Express!|.\n" +
-                        "            |      GOOD LUCK!               |.\n" +
-                        "            |    ________________________|____\n" +
+                        "            |  Answer questions correctly  |.\n" +
+                        "            |  & you may solve the mystery |.\n" +
+                        "            |  & survive the Feathered     |.\n" +
+                        "            |  Express!                    |.\n" +
+                        "            |                              |.\n" +
+                        "            |  Good luck!                  |.\n" +
+                        "            |    __________________________|__\n" +
                         "            |   /                            /.\n" +
                         "            \\__/____________________________/.");
                 validInput = true;
