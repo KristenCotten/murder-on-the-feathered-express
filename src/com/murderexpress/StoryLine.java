@@ -2,14 +2,13 @@ package com.murderexpress;
 
 import java.util.*;
 
-import static com.murderexpress.Player.CHANCES;
-
 public class StoryLine {
     // fields
     TriviaItem triviaItem;
     private Scanner scanner = new Scanner(System.in);
     private boolean isCorrect;
     private boolean canConclude;
+    Player player = new Player();
     String scene1;
     String scene2;
     String scene3;
@@ -42,7 +41,7 @@ public class StoryLine {
     }
 
     public void getQuestion() {
-        if (CHANCES > 0) {
+        if (Player.CHANCES > 0) {
             String question = triviaItem.getQuestion();
             System.out.println("\nquestion: " + question);
             System.out.print("Please enter [T]rue or [F]alse: ");
@@ -57,7 +56,7 @@ public class StoryLine {
 
         String userAnswer = scanner.nextLine();
 
-        if(CHANCES > 0) {
+        if(Player.CHANCES > 0) {
             String questionAnswer = triviaItem.getAnswer();
 
             if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) {
@@ -66,9 +65,9 @@ public class StoryLine {
                 setCorrect(true);
                 setCanConclude(true);
             } else {
-                CHANCES--;
+                Player.CHANCES--;
                 setCorrect(false);
-                System.out.println("\nincorrect answer, chances: " + CHANCES);
+                System.out.println("\nincorrect answer, chances: " + Player.CHANCES);
             }
         }
         return result;
@@ -83,20 +82,20 @@ public class StoryLine {
     }
 
     public void getConclusion() { //called when player wins the game
-        System.out.println("
+        System.out.println(
 
-                ( )
-            ( )
-        ( )
-        _||__ ____ ____ ____
-       (o)___)}___}}___}}___}
-        'U'0 0  0 0  0 0  0 0" +" +
+                "( )"+
+            "( )"+
+        "( )"+
+        "_||__ ____ ____ ____" +
+       "(o)___)}___}}___}}___}" +
+        "\'U\'\0 0  0 0  0 0  0 0" +
 
         "\n" +
-        "The train slowly pulls into the station. You're reviewing race records and have unconvered a trend.\n" +
+        "The train slowly pulls into the station. You're reviewing race records and have uncovered a trend.\n" +
         "One racer who's consistently finished second, never cracking that first place spot. A racer coming up\n" +
         "on retirement with a big robin's egg for wins.\n" +
-        "You look at the clues, the hankerchief, the grey feathers, the knitting needle and it all makes sense.\n" +
+        "You look at the clues, the handkerchief, the grey feathers, the knitting needle and it all makes sense.\n" +
         "\n" +
         "You dash out of the room - rushing to send a telegram to the London offices.\n" +
         " As the train begins to clear, you smell the familiar scent of perfume, and see Granny, dashing at you with a sharpened knitting needle.\n" +
@@ -104,24 +103,24 @@ public class StoryLine {
         "You're able to successfully counter Granny's attack. Securing Granny the wayward foal at the wings.\n" +
         "\n" +
         "Cuffing Granny you say: \n" +
-        "\'You gave it up granny.. all because you couldn't win. Now you won't deal with the line judge but the criminal judge. Lets go.\'"
+        "\'You gave it up granny.. all because you couldn't win. Now you won't deal with the line judge but the criminal judge. Lets go.\'\n" +
         "You take a deep breath. The duckraces can continue. All in a days work as a top-tier investigator on the Feathered Express.\n" +
         "Congratulations on your win!" + player.getUserName() + "!");
     }
 
     private void getYouFailed() { //called when player uses up all 3 chances
-        System.out.println("
+        System.out.println(
 
-                ( )
-            ( )
-        ( )
-        _||__ ____ ____ ____
-        (o)___)}___}}___}}___}
-        'U'0 0  0 0  0 0  0 0" +" +
+        "( )"+
+            "( )"+
+                "( )"+
+        "_||__ ____ ____ ____" +
+       "(o)___)}___}}___}}___}" +
+        "\'U\'\0 0  0 0  0 0  0 0" +
 
         "\n" +
 
-        "The train slowly pulls into the station. You're reviewing race records and have unconvered a trend.\n" +
+        "The train slowly pulls into the station. You're reviewing race records and have uncovered a trend.\n" +
         "One racer who's consistently finished second, never cracking that first place spot. A racer coming up.....\n" +
         "You are caught off guard as a cloaked figure comes up to you and a sharp object meets your chest\n " +
         "You gasp for air as you fall on the ground, just another victim on the Feathered Express.");
