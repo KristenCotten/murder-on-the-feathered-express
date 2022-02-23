@@ -5,8 +5,7 @@ public class TriviaItem {
     private String question;
     private String answer;
 
-    public TriviaItem(int id, String question, String answer) {
-        this.id = id;
+    public TriviaItem(String question, String answer) {
         setQuestion(question);
         setAnswer(answer);
     }
