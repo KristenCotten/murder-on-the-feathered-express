@@ -17,7 +17,7 @@ public class Game extends Thread {
         while (!isOver) {
             try {
                 welcome();
-                Thread.sleep(30000);
+                Thread.sleep(20000);
                 chooseStoryId();// choose the story here
                 playGame(storyLine);
                 showBoard();
@@ -247,6 +247,11 @@ public class Game extends Thread {
                 "                   -.   ^   .-\n" +
                 "_____________________\\'.|.'/_____________________");
         System.out.println("              Thank you for playing!");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 
     private StoryLine storyLineOne() {
