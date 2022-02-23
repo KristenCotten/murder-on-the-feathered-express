@@ -83,11 +83,49 @@ public class StoryLine {
     }
 
     public void getConclusion() { //called when player wins the game
-        System.out.println("Here is the conclusion");
+        System.out.println("
+
+                ( )
+            ( )
+        ( )
+        _||__ ____ ____ ____
+       (o)___)}___}}___}}___}
+        'U'0 0  0 0  0 0  0 0" +" +
+
+        "\n" +
+        "The train slowly pulls into the station. You're reviewing race records and have unconvered a trend.\n" +
+        "One racer who's consistently finished second, never cracking that first place spot. A racer coming up\n" +
+        "on retirement with a big robin's egg for wins.\n" +
+        "You look at the clues, the hankerchief, the grey feathers, the knitting needle and it all makes sense.\n" +
+        "\n" +
+        "You dash out of the room - rushing to send a telegram to the London offices.\n" +
+        " As the train begins to clear, you smell the familiar scent of perfume, and see Granny, dashing at you with a sharpened knitting needle.\n" +
+        "Murder on her mind and blood on her feathers.\n" +
+        "You're able to successfully counter Granny's attack. Securing Granny the wayward foal at the wings.\n" +
+        "\n" +
+        "Cuffing Granny you say: \n" +
+        "\'You gave it up granny.. all because you couldn't win. Now you won't deal with the line judge but the criminal judge. Lets go.\'"
+        "You take a deep breath. The duckraces can continue. All in a days work as a top-tier investigator on the Feathered Express.\n" +
+        "Congratulations on your win!" + player.getUserName() + "!");
     }
 
     private void getYouFailed() { //called when player uses up all 3 chances
-        System.out.println("YOU were murdered before finding out who did it");
+        System.out.println("
+
+                ( )
+            ( )
+        ( )
+        _||__ ____ ____ ____
+        (o)___)}___}}___}}___}
+        'U'0 0  0 0  0 0  0 0" +" +
+
+        "\n" +
+
+        "The train slowly pulls into the station. You're reviewing race records and have unconvered a trend.\n" +
+        "One racer who's consistently finished second, never cracking that first place spot. A racer coming up.....\n" +
+        "You are caught off guard as a cloaked figure comes up to you and a sharp object meets your chest\n " +
+        "You gasp for air as you fall on the ground, just another victim on the Feathered Express.");
+
         System.out.println("\nPlease hit enter to see the score board");
     }
 
