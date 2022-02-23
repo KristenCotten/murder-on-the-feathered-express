@@ -40,18 +40,18 @@ public class Board implements Serializable {
     public void show() {
         System.out.println();
         if(passedUserList.size() > 0) {
-            System.out.println("=======================================");
-            System.out.println("Murder on the Feathered Express Winners");
-            System.out.println("=======================================");
+            System.out.println("          =======================================");
+            System.out.println("          Murder on the Feathered Express Winners");
+            System.out.println("          =======================================");
             for (String player : passedUserList) {
                 System.out.println(player);
             }
         }
         if(failedUserList.size() > 0) {
             System.out.println();
-            System.out.println("=======================================");
-            System.out.println("Murder on the Feathered Express Losers");
-            System.out.println("=======================================");
+            System.out.println("          =======================================");
+            System.out.println("          Murder on the Feathered Express Losers");
+            System.out.println("          =======================================");
             for (String player : failedUserList) {
                 System.out.println(player);
             }
