@@ -3,14 +3,13 @@ package com.murderexpress;
 import java.io.IOException;
 import java.util.*;
 
-import static com.murderexpress.Player.CHANCES;
-
 public class StoryLine {
     // fields
     TriviaItem triviaItem;
     private Scanner scanner = new Scanner(System.in);
     private boolean isCorrect;
     private boolean canConclude;
+    Player player = new Player();
     String scene1;
     String scene2;
     String scene3;
@@ -45,7 +44,7 @@ public class StoryLine {
     }
 
     public void getQuestion() {
-        if (CHANCES > 0) {
+        if (Player.CHANCES > 0) {
             String question = triviaItem.getQuestion();
             System.out.println("question: " + question);
             System.out.print("Please enter [T]rue or [F]alse: ");
@@ -61,7 +60,7 @@ public class StoryLine {
 
         String userAnswer = scanner.nextLine();
 
-        if(CHANCES > 0) {
+        if(Player.CHANCES > 0) {
             String questionAnswer = triviaItem.getAnswer();
 
             if (userAnswer.equalsIgnoreCase(questionAnswer) && userAnswer.toUpperCase().matches("T|F")) { // user's answers match trivia answer then return true;
@@ -70,9 +69,10 @@ public class StoryLine {
                 setCorrect(true);
                 setCanConclude(true);
             } else {
-                CHANCES--;
+                Player.CHANCES--;
                 setCorrect(false);
                 System.out.println("incorrect answer, chances: " + CHANCES);
+
             }
         }
         return result;
@@ -111,11 +111,11 @@ public class StoryLine {
                         "\'You gave it up granny.. all because you couldn't win. Now you won't deal with the line judge but the criminal judge. Lets go.\'\n" +
                         "You take a deep breath. The duckraces can continue. All in a days work as a top-tier investigator on the Feathered Express.\n" +
                         "Congratulations on your win " + userName + "!");
+
     }
 
     private void getYouFailed() { //called when player uses up all 3 chances
         System.out.println(
-
                 "          ( )\n"+
                         "    ( )\n"+
                         "( )\n"+
@@ -127,6 +127,7 @@ public class StoryLine {
                         "One racer who's consistently finished second, never cracking that first place spot. A racer coming up.....\n" +
                         "You are caught off guard as a cloaked figure comes up to you and a sharp object meets your chest\n " +
                         "You gasp for air as you fall on the ground, just another victim on the Feathered Express.");
+
 
         System.out.println("\nPlease hit enter to see the score board");
     }

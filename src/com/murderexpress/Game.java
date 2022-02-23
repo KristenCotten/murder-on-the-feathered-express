@@ -110,7 +110,6 @@ public class Game extends Thread {
         System.out.println();
         System.out.print("[O]pen: ");
         openLetter();
-
     }
 
     private void playGame(StoryLine storyLine) throws IOException {
@@ -251,7 +250,14 @@ public class Game extends Thread {
     }
 
     private StoryLine storyLineOne() {
-        return new StoryLine("\nThe beginning1", "\nthe middle1", "\nmiddle end1", "\nend1");
+        return new StoryLine(
+                "\nThe beginning1",
+
+                "\nthe middle1",
+
+                "\nmiddle end1",
+
+                "\nend1");
     }
 
     private StoryLine storyLineTwo() {
