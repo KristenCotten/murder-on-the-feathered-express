@@ -20,7 +20,7 @@ public class Game extends Thread {
                 chooseStoryId();// choose the story here
                 playGame(storyLine);
                 showBoard();
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 end();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -200,31 +200,31 @@ public class Game extends Thread {
     }
 
     private void end() {
-        System.out.println("       .---.\n" +
-                "       |---|\n" +
-                "       |---|\n" +
-                "       |---|\n" +
-                "   .---^ - ^---.\n" +
-                "   :___________:\n" +
-                "      |  |//|\n" +
-                "      |  |//|\n" +
-                "      |  |//|\n" +
-                "      |  |//|\n" +
-                "      |  |//|\n" +
-                "      |  |//|\n" +
-                "      |  |.-|\n" +
-                "      |.-'**|\n" +
-                "       \\***/\n" +
-                "        \\*/\n" +
-                "         V\n" +
-                "\n" +
-                "        '\n" +
-                "         ^'\n" +
-                "        (_)\n" +
-                "\n" +
-                "    -.   ^   .-\n" +
-                "______\\'.|.'/________");
-        System.out.println("Thank you for playing!");
+        System.out.println("                      .---.\n" +
+                "                      |---|\n" +
+                "                      |---|\n" +
+                "                      |---|\n" +
+                "                  .---^ - ^---.\n" +
+                "                  :___________:\n" +
+                "                     |  |//|\n" +
+                "                     |  |//|\n" +
+                "                     |  |//|\n" +
+                "                     |  |//|\n" +
+                "                     |  |//|\n" +
+                "                     |  |//|\n" +
+                "                     |  |.-|\n" +
+                "                     |.-'**|\n" +
+                "                      \\***/\n" +
+                "                       \\*/\n" +
+                "                        V\n" +
+                "                   \n" +
+                "                       '\n" +
+                "                        ^'\n" +
+                "                       (_)\n" +
+                "               \n" +
+                "                   -.   ^   .-\n" +
+                "_____________________\\'.|.'/_____________________");
+        System.out.println("              Thank you for playing!");
     }
 
     private StoryLine storyLineOne() {
