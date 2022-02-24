@@ -59,9 +59,9 @@ public class Board implements Serializable {
     }
 
     public void save() {
-        //use a new  FileOutputStream and write to object
+
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("data/board.dat"))) {
-            out.writeObject(this); //please write "me" (a Board object) to the file
+            out.writeObject(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
