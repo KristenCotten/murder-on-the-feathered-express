@@ -27,7 +27,7 @@ class StoryLine extends Thread {
     }
 
     // Business methods
-    TriviaItem getTrivia() throws IOException {  //retrieve a triviaItem from TriviaQ's
+    TriviaItem getTrivia() throws IOException {
         QuestionBank qLoader = new QuestionBank("data/questions.csv");
         List<TriviaItem> triviaQs = qLoader.load();
         int questionIndex = getRandomInt(0, 29);
@@ -57,6 +57,7 @@ class StoryLine extends Thread {
     }
 
     public boolean checkAnswer() {
+
         boolean result = false;
 
         String userAnswer = scanner.nextLine();
@@ -121,7 +122,7 @@ class StoryLine extends Thread {
 
     }
 
-    private void getYouFailed() { //called when player uses up all 3 chances
+    private void getYouFailed() {
         System.out.println();
         System.out.println(
 

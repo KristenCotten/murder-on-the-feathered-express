@@ -33,6 +33,9 @@ public class Game extends Thread {
 
     private void welcome() {
         try {
+            int titleTime = 1500;
+            System.out.println();
+            System.out.println();
             System.out.println("                  ██████ ██████                           █████                   \n" +
                     "                ░░██████ ██████                          ░░███                    \n" +
                     "                 ░███░█████░███  █████ ████ ████████   ███████   ██████  ████████ \n" +
@@ -50,7 +53,7 @@ public class Game extends Thread {
                     "                        ▀▀▀▀   ▄▀   █        ▄▀         ▄▀  ▄▀   ▄▀▄▄▄▄   \n" +
                     "                               █    ▐       █          █   █     █    ▐   \n" +
                     "                               ▐            ▐          ▐   ▐     ▐        ");
-            Thread.sleep(1500);
+            Thread.sleep(titleTime);
             System.out.println("  █████▒   ▓█████     ▄▄▄         ▄▄▄█████▓    ██░ ██    ▓█████     ██▀███     ▓█████    ▓█████▄ \n" +
                     "▓██   ▒    ▓█   ▀    ▒████▄       ▓  ██▒ ▓▒   ▓██░ ██▒   ▓█   ▀    ▓██ ▒ ██▒   ▓█   ▀    ▒██▀ ██▌\n" +
                     "▒████ ░    ▒███      ▒██  ▀█▄     ▒ ▓██░ ▒░   ▒██▀▀██░   ▒███      ▓██ ░▄█ ▒   ▒███      ░██   █▌\n" +
@@ -61,7 +64,7 @@ public class Game extends Thread {
                     " ░ ░          ░        ░   ▒        ░          ░  ░░ ░      ░        ░░   ░       ░       ░ ░  ░ \n" +
                     "              ░  ░         ░  ░                ░  ░  ░      ░  ░      ░           ░  ░      ░    \n" +
                     "                                                                                          ░      ");
-            Thread.sleep(1500);
+            Thread.sleep(titleTime);
             System.out.println("                 ██████████                                                         \n" +
                     "                ░░███░░░░░█                                                         \n" +
                     "                 ░███  █ ░  █████ █████ ████████  ████████   ██████   █████   █████ \n" +
@@ -73,7 +76,7 @@ public class Game extends Thread {
                     "                                        ░███                                        \n" +
                     "                                        █████                                       \n" +
                     "                                       ░░░░░                                        ");
-            Thread.sleep(1500);
+            Thread.sleep(titleTime);
             System.out.println("                                             Created By                                 ");
             System.out.println("                                              Kristen                                   ");
             System.out.println("                                               Jilly                                    ");
@@ -113,42 +116,46 @@ public class Game extends Thread {
 
     private void playGame(StoryLine storyLine) throws IOException {
         try {
+            int sceneTime = 2000;
+            int triviaTime = 7000;
+            int qTime = 3000;
+
             Thread.sleep(1000);
             System.out.println(storyLine.getScene1());
             storyLine.getTrivia();
-            Thread.sleep(5000);
+            Thread.sleep(triviaTime);
             storyLine.getQuestion();
-            Thread.sleep(2000);
+            Thread.sleep(qTime);
             storyLine.checkAnswer();
 
-            Thread.sleep(2000);
+            Thread.sleep(sceneTime);
             System.out.println(storyLine.getScene2());
 //            storyLine.getClue();
             storyLine.getTrivia();
-            Thread.sleep(5000);
+            Thread.sleep(triviaTime);
             storyLine.getQuestion();
-            Thread.sleep(2000);
+            Thread.sleep(qTime);
             storyLine.checkAnswer();
 
-            Thread.sleep(2000);
+            Thread.sleep(sceneTime);
             System.out.println(storyLine.getScene3());
 //            storyLine.getClue();
             storyLine.getTrivia();
-            Thread.sleep(5000);
+            Thread.sleep(triviaTime);
             storyLine.getQuestion();
-            Thread.sleep(2000);
+            Thread.sleep(qTime);
             storyLine.checkAnswer();
 
-            Thread.sleep(2000);
+            Thread.sleep(sceneTime);
             System.out.println(storyLine.getScene4());
 //            storyLine.getClue();
             storyLine.getTrivia();
-            Thread.sleep(5000);
+            Thread.sleep(triviaTime);
             storyLine.getQuestion();
-            Thread.sleep(2000);
+            Thread.sleep(qTime);
             storyLine.checkAnswer();
 
-            Thread.sleep(2000);
+            Thread.sleep(sceneTime);
             if (storyLine.canConclude()) {
                 storyLine.getConclusion(player.getUserName());
                 try {
@@ -264,8 +271,8 @@ public class Game extends Thread {
                 "               \n" +
                 "                   -.   ^   .-\n" +
                 "_____________________\\'.|.'/_____________________");
-        System.out.println("              Thank you for playing!");
         System.out.println();
+        System.out.println("              Thank you for playing!");
         System.out.println();
         System.out.println();
         System.out.println();
