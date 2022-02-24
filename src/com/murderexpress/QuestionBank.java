@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionBank {
+class QuestionBank {
     private Path dataFilePath;
 
     public QuestionBank(String dataFilePath) {

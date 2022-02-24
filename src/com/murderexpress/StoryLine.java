@@ -5,21 +5,21 @@ import java.util.*;
 
 import static com.murderexpress.Player.CHANCES;
 
-public class StoryLine extends Thread {
+class StoryLine extends Thread {
     // fields
     TriviaItem triviaItem;
     private Scanner scanner = new Scanner(System.in);
     private boolean isCorrect;
     private boolean canConclude;
-    String scene1;
-    String scene2;
-    String scene3;
-    String scene4;
-    int clueIndex = 0;
+    private String scene1;
+    private String scene2;
+    private String scene3;
+    private String scene4;
+    private int clueIndex = 0;
     String[] clues = new String[]{"*** 🔍 CLUE: A single grey feather, once vibrant but now fading ***", "*** 🔍 CLUE: A pointed needle, grey, worn ***", "*** 🔍 CLUE: Butterscotch and peppermint wrappers, rolled in a dirty tissue ***", "*** 🔍 CLUE: A cookie tin filled with yarn ***"};
 
     // ctor
-    public StoryLine(String scene1, String scene2, String scene3, String scene4) {
+    StoryLine(String scene1, String scene2, String scene3, String scene4) {
         setScene1(scene1);
         setScene2(scene2);
         setScene3(scene3);
@@ -27,8 +27,7 @@ public class StoryLine extends Thread {
     }
 
     // Business methods
-    public TriviaItem getTrivia() throws IOException {  //retrieve a Trivia question from TriviaQ's
-        //QuestionBank triviaQ = new QuestionBank();
+    TriviaItem getTrivia() throws IOException {  //retrieve a triviaItem from TriviaQ's
         QuestionBank qLoader = new QuestionBank("data/questions.csv");
         List<TriviaItem> triviaQs = qLoader.load();
         int questionIndex = getRandomInt(0, 29);
@@ -36,7 +35,7 @@ public class StoryLine extends Thread {
         return triviaItem;
     }
 
-    public static int getRandomInt(int min, int max) {
+    private static int getRandomInt(int min, int max) {
         int result;
         double random = Math.random();
         int scaled = (int) (random * max);
@@ -57,9 +56,7 @@ public class StoryLine extends Thread {
         }
     }
 
-    public boolean checkAnswer() {  //wrong answer->decrease chances
-        // correct answer-> player can move forward
-
+    public boolean checkAnswer() {
         boolean result = false;
 
         String userAnswer = scanner.nextLine();
@@ -108,7 +105,7 @@ public class StoryLine extends Thread {
                         "uncovered a trend. One racer who's consistently finished second, never cracking\n" +
                         "that first place spot. A racer coming up on retirement with a big robin's egg for wins.\n" +
                         "You look at the clues, the handkerchief, the grey feathers, the knitting needle and it\n" +
-                        "all makes sense.\n" +
+                        "suddenly all makes sense.\n" +
                         "\n" +
                         "You dash out of the room - rushing to send a telegram to the London offices.\n" +
                         "As the train begins to clear, you smell the familiar scent of perfume, and see Granny,\n" +
@@ -139,7 +136,7 @@ public class StoryLine extends Thread {
         System.out.println(
                 "The train slowly pulls into the station. You're reviewing race records and have uncovered a trend.\n" +
                         "One racer who's consistently finished second, never cracking that first place spot. A racer coming up...\n" + "\n" +
-                        "You are caught off guard as a cloaked figure comes up to you and a sharp object meets your chest\n" +
+                        "You are caught off guard as a cloaked figure comes up to you and a sharp object meets your chest!\n" +
                         "You gasp for air as you fall on the ground\n" +"\n" +
                         "...just another victim on the Feathered Express.");
 
