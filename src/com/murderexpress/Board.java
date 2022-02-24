@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 
-public class Board implements Serializable {
+class Board implements Serializable {
     public ArrayList<String> passedUserList = new ArrayList<>();
     public ArrayList<String> failedUserList = new ArrayList<>();
 

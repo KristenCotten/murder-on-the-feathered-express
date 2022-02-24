@@ -1,6 +1,6 @@
 package com.murderexpress;
 
-public class TriviaItem {
+class TriviaItem {
     private int id;
     private String question;
     private String answer;

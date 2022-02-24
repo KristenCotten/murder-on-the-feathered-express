@@ -87,7 +87,7 @@ public class Game extends Thread {
             boolean validInput = false;
             System.out.print("Please enter your name: ");
             while (!validInput) {
-                userName = scanner.nextLine();
+                String userName = scanner.nextLine();
                 if (userName.matches("[a-zA-Z]{2,15}")) {
                     player.setUserName(userName);
                     validInput = true;
@@ -157,15 +157,15 @@ public class Game extends Thread {
 
             Thread.sleep(sceneTime);
             if (storyLine.canConclude()) {
-                storyLine.getConclusion(userName);
+                storyLine.getConclusion(player.getUserName());
                 try {
                     Thread.sleep(30000);
-                    board.updatePassed(userName);
+                    board.updatePassed(player.getUserName());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             } else {
-                board.updateFailed(userName);
+                board.updateFailed(player.getUserName());
             }
         } catch (InterruptedException e){
             e.printStackTrace();
@@ -181,7 +181,7 @@ public class Game extends Thread {
                 System.out.println("         ________________________________\n" +
                         "        /  \\                              \\.\n" +
                         "       |    |  Something foul is afoot on  |.\n" +
-                        "        \\__ |  the Feathered Express! The  |.\n" +
+                        "        \\__ |  the Feathered Express, the  |.\n" +
                         "            |  destination for famed       |.\n" +
                         "            |  feathered fowl and fans.    |.\n" +
                         "            |  Racers have taken to the    |.\n" +
