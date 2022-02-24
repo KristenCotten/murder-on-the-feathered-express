@@ -16,7 +16,7 @@ public class StoryLine extends Thread {
     String scene3;
     String scene4;
     int clueIndex = 0;
-    String[] clues = new String[]{"*** 🔍 CLUE: A single grey feather, once vibrant but now fading ***", "*** 🔍 CLUE: A pointed needle, grey, worn ***", "*** 🔍 CLUE: Butterscotch and peppermint wrappers, rolled in a dirty tissue ***"};
+    String[] clues = new String[]{"*** 🔍 CLUE: A single grey feather, once vibrant but now fading ***", "*** 🔍 CLUE: A pointed needle, grey, worn ***", "*** 🔍 CLUE: Butterscotch and peppermint wrappers, rolled in a dirty tissue ***", "*** 🔍 CLUE: A cookie tin filled with yarn ***"};
 
     // ctor
     public StoryLine(String scene1, String scene2, String scene3, String scene4) {
